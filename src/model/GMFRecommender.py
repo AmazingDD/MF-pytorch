@@ -5,9 +5,9 @@ import torch
 # images = images.to(device)
 # labels = labels.to(device)
 
-class GMFRecommender(torch.nn.Module):
+class GMF(torch.nn.Module):
     def __init__(self, params):
-        super(GMFRecommender, self).__init__()
+        super(GMF, self).__init__()
         self.num_users = params['num_users']
         self.num_items = params['num_items']
         self.latent_dim = params['latent_dim']

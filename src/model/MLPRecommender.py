@@ -1,9 +1,9 @@
 import torch
-from GMFRecommender import GMFRecommender
+from GMFRecommender import GMF
 
-class MLPRecommender(torch.nn.Module):
+class MLP(torch.nn.Module):
     def __init__(self, params):
-        super(MLPRecommender, self).__init__()
+        super(MLP, self).__init__()
         self.params = params
         self.num_users = params['num_users']
         self.num_items = params['num_items']
@@ -37,7 +37,7 @@ class MLPRecommender(torch.nn.Module):
 
     def load_pretrain(self, dirs):
         params = self.params
-        gmf = GMFRecommender(params)
+        gmf = GMF(params)
         
         state_dict = torch.load(dirs)
         gmf.load_state_dict(state_dict)

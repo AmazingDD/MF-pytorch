@@ -1,8 +1,8 @@
 import torch
 
-class SVDppRecommender(torch.nn.Module):
+class SVDpp(torch.nn.Module):
     def __init__(self, params):
-        super(SVDppRecommender, self).__init__()
+        super(SVDpp, self).__init__()
         self.num_users = params['num_users']
         self.num_items = params['num_items']
         self.latent_dim = params['latent_dim']

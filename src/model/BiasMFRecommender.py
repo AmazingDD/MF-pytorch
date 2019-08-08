@@ -1,8 +1,8 @@
 import torch
 
-class BiasMFRecommender(torch.nn.Module):
+class BiasMF(torch.nn.Module):
     def __init__(self, params):
-        super(BiasMFRecommender, self).__init__()
+        super(BiasMF, self).__init__()
         self.num_users = params['num_users']
         self.num_items = params['num_items']
         self.latent_dim = params['latent_dim']

@@ -1,10 +1,10 @@
 import torch
-from GMFRecommender import GMFRecommender
-from MLPRecommender import MLPRecommender
+from GMFRecommender import GMF
+from MLPRecommender import MLP
 
-class NeuCFRecommender(torch.nn.Module):
+class NeuCF(torch.nn.Module):
     def __init__(self, params):
-        super(NeuCFRecommender, self).__init__()
+        super(NeuCF, self).__init__()
         self.params = params
         self.num_users = params['num_users']
         self.num_items = params['num_items']
@@ -45,7 +45,7 @@ class NeuCFRecommender(torch.nn.Module):
     def load_pretrain(self, mlp_dirs, mf_dirs):
         params = self.params
         params['latent_dim'] = params['latent_dim_mlp']
-        mlp = MLPRecommender(params)
+        mlp = MLP(params)
         state_dict = torch.load(mlp_dirs)
         mlp.load_state_dict(state_dict)
 
@@ -55,7 +55,7 @@ class NeuCFRecommender(torch.nn.Module):
             self.fc_layers[idx].weight.data = mlp.fc_layers[idx].weight.data
 
         params['latent_dim'] = params['latent_dim_mf']
-        gmf = GMFRecommender(params)
+        gmf = GMF(params)
         state_dict = torch.load(mf_dirs)
         gmf.load_state_dict(state_dict)
 
