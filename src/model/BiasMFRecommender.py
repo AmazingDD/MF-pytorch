@@ -6,7 +6,7 @@ class BiasMFRecommender(torch.nn.Module):
         self.num_users = params['num_users']
         self.num_items = params['num_items']
         self.latent_dim = params['latent_dim']
-        self.mu = torch.tensor(params['global_mean')
+        self.mu = params['global_mean']
 
         self.user_embedding = torch.nn.Embedding(self.num_users, self.latent_dim)
         self.item_embedding = torch.nn.Embedding(self.num_items, self.latent_dim)
