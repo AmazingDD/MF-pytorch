@@ -19,6 +19,11 @@ class SVDppRecommender(torch.nn.Module):
         self.affine_output = torch.nn.Linear(self.latent_dim, 1)
 
     def forward(self, user_idx, item_idx, Iu):
+        '''
+        Parameters
+        ----------
+        Iu: item set that user u interacted before
+        '''
         user_vec = self.user_embedding(user_idx)
         u_impl_fdb = torch.zeros(self.latent_dim)
         for j in Iu:
