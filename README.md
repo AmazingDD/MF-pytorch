@@ -8,6 +8,6 @@ This repository contains algorithms below:
 
 * `BiasMF`: [Matrix Factorization Techniques for Recommender Systems](https://www.asc.ohio-state.edu/statistics/dmsl//Koren_2009.pdf)
 
-* `SVDpp`: [Matrix Factorization Techniques for Recommender Systems](https://www.asc.ohio-state.edu/statistics/dmsl//Koren_2009.pdf)
+* `SVDpp`: [Factorization meets the neighborhood: a multifaceted collaborative filtering model](https://dl.acm.org/citation.cfm?id=1401890.1401944)
 
-
+* `NCF`: [Neural Collaborative Filtering](http://dl.acm.org/citation.cfm?id=3052569)
