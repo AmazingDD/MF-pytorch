@@ -11,3 +11,5 @@ This repository contains algorithms below:
 * `SVDpp`: [Factorization meets the neighborhood: a multifaceted collaborative filtering model](https://dl.acm.org/citation.cfm?id=1401890.1401944)
 
 * `NCF`: [Neural Collaborative Filtering](http://dl.acm.org/citation.cfm?id=3052569)
+
+* `DeepFM`: [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction](https://arxiv.org/abs/1703.04247)
