@@ -2,14 +2,13 @@
 @Author: Yu Di
 @Date: 2019-08-09 14:04:38
 @LastEditors: Yudi
-@LastEditTime: 2019-08-13 15:19:32
+@LastEditTime: 2019-08-13 15:22:07
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
 @Description:  this is a demo for biasMF recommendation
 '''
 import torch
 from torch.utils.data import DataLoader, Dataset
-from numpy.random import RandomState
 
 class RateDataset(Dataset):
     def __init__(self, user_tensor, item_tensor, target_tensor):
@@ -23,7 +22,7 @@ class RateDataset(Dataset):
     def __len__(self):
         return self.user_tensor.size(0)
 
-class NNTest(torch.nn.Module):
+class BiasMF(torch.nn.Module):
     def __init__(self, user_num=4, item_num=4, factors=10):
         super(NNTest, self).__init__()
         # self.user_embedding = torch.nn.Embedding(user_num, factors)
@@ -69,7 +68,7 @@ user_tensor = torch.LongTensor([key[0] for key in data.keys()])
 item_tensor = torch.LongTensor([key[1] for key in data.keys()])
 rating_tensor = torch.FloatTensor([val for val in data.values()])
 
-model = NNTest()
+model = BiasMF()
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 
