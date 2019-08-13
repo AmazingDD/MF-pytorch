@@ -1,3 +1,12 @@
+'''
+@Author: Yu Di
+@Date: 2019-08-08 14:43:33
+@LastEditors: Yudi
+@LastEditTime: 2019-08-13 15:17:44
+@Company: Cardinal Operation
+@Email: yudi@shanshu.ai
+@Description: 
+'''
 import torch
 
 class SVDpp(torch.nn.Module):
@@ -11,12 +20,12 @@ class SVDpp(torch.nn.Module):
         self.user_embedding = torch.nn.Embedding(self.num_users, self.latent_dim)
         self.item_embedding = torch.nn.Embedding(self.num_items, self.latent_dim)
 
-        self.user_bias = torch.zeros(self.num_users, requires_grad=True)
-        self.item_bias = torch.zeros(self.num_items, requires_grad=True)
+        self.user_bias = torch.nn.Embedding(self.num_users, 1)
+        self.user_bias.weight.data = torch.zeros(self.num_users, 1).float()
+        self.item_bias = torch.nn.Embedding(self.num_items, 1)
+        self.item_bias.weight.data = torch.zeros(self.num_items, 1).float()
 
-        self.yj = torch.randn((self.num_items, self.latent_dim), requires_grad=True)
-
-        self.affine_output = torch.nn.Linear(self.latent_dim, 1)
+        self.yj = torch.nn.Embedding(self.num_items, self.latent_dim)
 
     def forward(self, user_idx, item_idx, Iu):
         '''
@@ -25,14 +34,15 @@ class SVDpp(torch.nn.Module):
         Iu: item set that user u interacted before
         '''
         user_vec = self.user_embedding(user_idx)
-        u_impl_fdb = torch.zeros(self.latent_dim)
+        u_impl_fdb = torch.zeros(user_idx.size(0), self.latent_dim)
         for j in Iu:
-            u_impl_fdb += self.yj[j]
+            j = torch.LongTensor([j])
+            u_impl_fdb += self.yj(j)
         u_impl_fdb /= torch.FloatTensor([len(Iu)]).sqrt()
-
         user_vec += u_impl_fdb
+
         item_vec = self.item_embedding(item_idx)
-        dot = self.affine_output(torch.mul(user_vec, item_vec))
-        rating = dot + self.mu + self.user_bias[user_idx] + self.item_bias[item_idx]
+        dot = torch.mul(user_vec, item_vec).sum(dim=1)
+        rating = dot + self.mu + self.user_bias(user_idx) + self.item_bias(item_idx)
 
         return rating
