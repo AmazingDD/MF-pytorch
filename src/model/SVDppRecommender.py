@@ -2,7 +2,7 @@
 @Author: Yu Di
 @Date: 2019-08-08 14:43:33
 @LastEditors: Yudi
-@LastEditTime: 2019-08-13 15:34:26
+@LastEditTime: 2019-08-13 16:10:21
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
 @Description: 
@@ -43,6 +43,6 @@ class SVDpp(torch.nn.Module):
 
         item_vec = self.item_embedding(item_idx)
         dot = torch.mul(user_vec, item_vec).sum(dim=1)
-        rating = dot + self.mu + self.user_bias(user_idx) + self.item_bias(item_idx)
+        rating = dot + self.mu + self.user_bias(user_idx).view(-1) + self.item_bias(item_idx).view(-1)
 
         return rating

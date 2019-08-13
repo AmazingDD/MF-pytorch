@@ -1,3 +1,12 @@
+'''
+@Author: Yu Di
+@Date: 2019-08-07 17:57:41
+@LastEditors: Yudi
+@LastEditTime: 2019-08-13 15:59:54
+@Company: Cardinal Operation
+@Email: yudi@shanshu.ai
+@Description: 
+'''
 import torch
 
 # # Device configuration
@@ -15,15 +24,15 @@ class GMF(torch.nn.Module):
         self.user_embedding = torch.nn.Embedding(self.num_users, self.latent_dim)
         self.item_embedding = torch.nn.Embedding(self.num_items, self.latent_dim)
 
-        self.affine_output = torch.nn.Linear(self.latent_dim, 1)
-        self.logistic = torch.nn.Sigmoid()
+        # self.affine_output = torch.nn.Linear(self.latent_dim, 1)
+        # self.logistic = torch.nn.Sigmoid()
 
     def forward(self, user_indices, item_indices):
         user_vec = self.user_embedding(user_indices)
         item_vec = self.item_embedding(item_indices)
-        dot = torch.mul(user_vec, item_vec)
-        out = self.affine_output(dot)
-        rating = self.logistic(out)
+        rating = torch.mul(user_vec, item_vec).sum(dim=1)
+        # out = self.affine_output(dot)
+        # rating = self.logistic(out)
 
         return rating
 

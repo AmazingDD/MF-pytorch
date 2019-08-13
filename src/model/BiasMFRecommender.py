@@ -2,7 +2,7 @@
 @Author: Yu Di
 @Date: 2019-08-08 14:18:50
 @LastEditors: Yudi
-@LastEditTime: 2019-08-13 15:07:03
+@LastEditTime: 2019-08-13 16:08:18
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
 @Description: 
@@ -30,6 +30,6 @@ class BiasMF(torch.nn.Module):
         item_vec = self.item_embedding(item_indices)
         dot = torch.mul(user_vec, item_vec).sum(dim=1)
 
-        rating = dot + self.mu + self.user_bias(user_indices) + self.item_bias(item_indices) + self.mu
+        rating = dot + self.mu + self.user_bias(user_indices).view(-1) + self.item_bias(item_indices).view(-1) + self.mu
 
         return rating
