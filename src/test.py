@@ -2,7 +2,7 @@
 @Author: Yu Di
 @Date: 2019-08-09 14:04:38
 @LastEditors: Yudi
-@LastEditTime: 2019-08-13 15:22:07
+@LastEditTime: 2019-08-13 15:34:19
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
 @Description:  this is a demo for biasMF recommendation
@@ -22,11 +22,12 @@ class RateDataset(Dataset):
     def __len__(self):
         return self.user_tensor.size(0)
 
-class BiasMF(torch.nn.Module):
+class SVDpp(torch.nn.Module):
     def __init__(self, user_num=4, item_num=4, factors=10):
-        super(NNTest, self).__init__()
+        super(SVDpp, self).__init__()
         # self.user_embedding = torch.nn.Embedding(user_num, factors)
         # self.random_state = RandomState(1)
+        self.latent_dim = factors
 
         self.user_embedding = torch.nn.Embedding(user_num, factors)
         self.user_embedding.weight.data = torch.randn(user_num, factors).float()
@@ -41,8 +42,20 @@ class BiasMF(torch.nn.Module):
 
         self.global_mean = 0.0
 
-    def forward(self, u, i):
-        out = torch.mul(self.user_embedding(u), self.item_embedding(i)).sum(dim=1)
+        self.yj = torch.nn.Embedding(item_num, factors)
+
+    def forward(self, u, i, Iu):
+        user_vec = self.user_embedding(u)
+        u_impl_fdb = torch.zeros(u.size(0), self.latent_dim)
+        for j in Iu:
+            j = torch.LongTensor([j])
+            u_impl_fdb += self.yj(j)
+        u_impl_fdb /= torch.FloatTensor([len(Iu)]).sqrt()
+        user_vec += u_impl_fdb
+
+        item_vec = self.item_embedding(i)
+        out = torch.mul(user_vec, item_vec).sum(dim=1)
+
         out = out + self.user_bias(u) + self.item_bias(i) + self.global_mean
 
         return out
@@ -64,11 +77,13 @@ data = {(0,0): 4,
         (3,2): 3,
         (3,3): 1
         }
+Iu = {key:[0,1,2,3] for key in range(4)}
+
 user_tensor = torch.LongTensor([key[0] for key in data.keys()])
 item_tensor = torch.LongTensor([key[1] for key in data.keys()])
 rating_tensor = torch.FloatTensor([val for val in data.values()])
 
-model = BiasMF()
+model = SVDpp()
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 
@@ -80,7 +95,7 @@ for epoch in range(30):
         u, i, r = batch[0], batch[1], batch[2]
         r = r.float()
         # forward pass
-        preds = model(u, i)
+        preds = model(u, i, Iu)
         loss = criterion(preds, r)
 
         # backward and optimize
