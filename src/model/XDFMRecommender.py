@@ -2,10 +2,10 @@
 @Author: Yu Di
 @Date: 2019-08-15 14:44:51
 @LastEditors: Yudi
-@LastEditTime: 2019-08-15 15:06:23
+@LastEditTime: 2019-08-15 16:08:31
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
-@Description: 
+@Description: extreme deep fm
 '''
 import torch
 from utils.fm_layers import FeaturesEmbedding, FeaturesLinear, MultiLayerPerceptron, CompressedInteractionNetwork

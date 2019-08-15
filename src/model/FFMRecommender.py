@@ -2,10 +2,10 @@
 @Author: Yu Di
 @Date: 2019-08-15 11:23:00
 @LastEditors: Yudi
-@LastEditTime: 2019-08-15 13:48:51
+@LastEditTime: 2019-08-15 16:07:25
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
-@Description: 
+@Description: Field-Aware FM
 '''
 import torch
 from utils.fm_layers import FeaturesLinear, FieldAwareFactorizationMachine

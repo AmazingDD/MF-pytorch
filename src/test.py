@@ -2,10 +2,10 @@
 @Author: Yu Di
 @Date: 2019-08-09 14:04:38
 @LastEditors: Yudi
-@LastEditTime: 2019-08-13 16:10:18
+@LastEditTime: 2019-08-15 16:05:55
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
-@Description:  this is a demo for biasMF recommendation
+@Description:  this is a demo for SVD++ recommendation
 '''
 import torch
 from torch.utils.data import DataLoader, Dataset

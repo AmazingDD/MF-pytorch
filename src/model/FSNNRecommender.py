@@ -2,10 +2,10 @@
 @Author: Yu Di
 @Date: 2019-08-15 13:32:58
 @LastEditors: Yudi
-@LastEditTime: 2019-08-15 13:56:22
+@LastEditTime: 2019-08-15 16:08:11
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
-@Description: 
+@Description: Factorization-support neural network
 '''
 import torch
 from utils.fm_layers import FeaturesEmbedding, MultiLayerPerceptron
