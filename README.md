@@ -2,16 +2,19 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-15 17:33:43
+ * @LastEditTime: 2019-08-15 17:40:54
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
  -->
+
 # recommend-algorithms
+
 Sometimes, I just want reformat some state-of-the-art recommend algorithms with some new technique like Pytorch or tensorflow.
 
-
 This repository contains algorithms below:
+
+* `LR`: Logistc Regression
 
 * `GMF`: [Probabilistic matrix factorization](https://www.asc.ohio-state.edu/statistics/dmsl//Salakhutdinov_Minh_2008.pdf)
 
@@ -30,6 +33,8 @@ This repository contains algorithms below:
 * `WaD`: [Wide & Deep Learning for Recommender Systems](https://arxiv.org/abs/1606.07792)
 
 * `AFM`: [Attentional Factorization Machines: Learning the Weight of Feature Interactions via Attention Networks](https://arxiv.org/abs/1708.04617)
+
+* `NeuFM`: [Neural Factorization Machines for Sparse Predictive Analytics](https://arxiv.org/abs/1708.05027)
 
 * `DeepFM`: [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction](https://arxiv.org/abs/1703.04247)
 
