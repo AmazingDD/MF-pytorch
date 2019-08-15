@@ -2,7 +2,7 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-15 14:43:45
+ * @LastEditTime: 2019-08-15 16:06:50
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
@@ -25,7 +25,9 @@ This repository contains algorithms below:
 
 * `FFM`: [Field-aware Factorization Machines for CTR Prediction](https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf)
 
-* `FsNN` [Deep Learning over Multi-field Categorical Data: A Case Study on User Response Prediction](https://arxiv.org/abs/1601.02376)
+* `FsNN`: [Deep Learning over Multi-field Categorical Data: A Case Study on User Response Prediction](https://arxiv.org/abs/1601.02376)
+
+* `AFM`: [Attentional Factorization Machines: Learning the Weight of Feature Interactions via Attention Networks](https://arxiv.org/abs/1708.04617)
 
 * `DeepFM`: [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction](https://arxiv.org/abs/1703.04247)
 
