@@ -2,7 +2,7 @@
 @Author: Yu Di
 @Date: 2019-08-13 16:32:16
 @LastEditors: Yudi
-@LastEditTime: 2019-08-15 16:47:20
+@LastEditTime: 2019-08-15 17:55:21
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
 @Description: 
@@ -42,6 +42,9 @@ class FactorizationMachine(torch.nn.Module):
         self.reduce_sum = reduce_sum
 
     def forward(self, x):
+        '''
+        :param x: Float tensor of size ``(batch_size, num_fields, embed_dim)``
+        '''
         square_of_sum = torch.sum(x, dim=1) ** 2
         sum_of_square = torch.sum(x ** 2, dim=1)
         ix = square_of_sum - sum_of_square
