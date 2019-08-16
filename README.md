@@ -2,7 +2,7 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-15 17:40:54
+ * @LastEditTime: 2019-08-16 11:27:55
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
@@ -36,6 +36,10 @@ This repository contains algorithms below:
 
 * `NeuFM`: [Neural Factorization Machines for Sparse Predictive Analytics](https://arxiv.org/abs/1708.05027)
 
+* `FNeuFM`: [Field-aware Neural Factorization Machine for Click-Through Rate Prediction](https://arxiv.org/abs/1902.09096)
+
 * `DeepFM`: [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction](https://arxiv.org/abs/1703.04247)
 
 * `xDeepFM`: [xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Systems](https://arxiv.org/abs/1803.05170)
+
+* `AutoInt`: [AutoInt: Automatic Feature Interaction Learning via Self-Attentive Neural Networks](https://arxiv.org/abs/1810.11921)
