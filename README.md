@@ -2,7 +2,7 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-16 11:27:55
+ * @LastEditTime: 2019-08-19 14:23:54
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
@@ -43,3 +43,5 @@ This repository contains algorithms below:
 * `xDeepFM`: [xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Systems](https://arxiv.org/abs/1803.05170)
 
 * `AutoInt`: [AutoInt: Automatic Feature Interaction Learning via Self-Attentive Neural Networks](https://arxiv.org/abs/1810.11921)
+
+* `MeF`: [Metric Factorization: Recommendation beyond Matrix Factorization](https://arxiv.org/abs/1802.04606)
