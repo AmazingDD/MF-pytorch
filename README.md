@@ -2,7 +2,7 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-19 17:06:03
+ * @LastEditTime: 2019-08-20 10:51:47
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
@@ -21,6 +21,8 @@ This repository contains algorithms below:
 * `BiasMF`: [Matrix Factorization Techniques for Recommender Systems](https://www.asc.ohio-state.edu/statistics/dmsl//Koren_2009.pdf)
 
 * `SVDpp`: [Factorization meets the neighborhood: a multifaceted collaborative filtering model](https://dl.acm.org/citation.cfm?id=1401890.1401944)
+
+* `BPRMF`: [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/pdf/1205.2618.pdf)
 
 * `NCF`: [Neural Collaborative Filtering](http://dl.acm.org/citation.cfm?id=3052569)
 

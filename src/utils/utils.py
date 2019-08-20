@@ -2,14 +2,14 @@
 @Author: Yu Di
 @Date: 2019-08-08 13:36:45
 @LastEditors: Yudi
-@LastEditTime: 2019-08-20 10:41:50
+@LastEditTime: 2019-08-20 13:43:59
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
 @Description: 
 '''
 import numpy as np
 import pandas as pd
-from scipy.sparse import csr_matrix, csc_matrix
+from scipy.sparse import csr_matrix, csc_matrix, dok_matrix
 from sklearn.model_selection import train_test_split
 
 import torch
@@ -182,6 +182,37 @@ def load_rating_data(path, header = ['user_id', 'item_id', 'rating', 'category']
 
     return train_matrix.todok(), test_matrix.todok(), n_users, n_items, neg_user_item_matrix, test_user_item_matrix, unique_users
 
-################################################
+##################### BPR ###########################
+# train_mat test_mat are dok_matrix type
+# features is train data which is a pd.DataFrame.values with (user, item)
+class BPRData(Dataset):
+    def __init__(self, features, num_item, train_mat=None, num_ng=0, is_training=None):
+        super(BPRData, self).__init__()
+        self.features = features
+        self.num_item = num_item
+        self.train_mat = train_mat
+        self.num_ng = num_ng
+        self.is_training = is_training
 
+    def ng_sample(self):
+        assert self.is_training, 'no need to sample when testing'
+        self.features_fill = []
+        for x in self.features:
+            u, i = x[0], x[1]
+            for t in range(self.num_ng):
+                j = np.random.randint(self.num_item)
+                while (u, j) in self.train_mat:
+                    j = np.random.randint(self.num_item)
+                self.features_fill.append([u, i, j])
+    
+    def __len__(self):
+        return self.num_neg * len(self.features) if self.is_training else self.features
 
+    def __getitem__(self, idx):
+        features = self.features_fill if self.is_training else self.features
+        user = features[idx][0]
+        item = features[idx][1]
+        item_j = features[idx][2] if self.is_training else features[idx][1]
+
+        return user, item, item_j
+##########################################################
