@@ -2,7 +2,7 @@
 @Author: Yu Di
 @Date: 2019-08-08 13:36:45
 @LastEditors: Yudi
-@LastEditTime: 2019-08-19 17:00:05
+@LastEditTime: 2019-08-20 10:41:50
 @Company: Cardinal Operation
 @Email: yudi@shanshu.ai
 @Description: 
@@ -181,3 +181,7 @@ def load_rating_data(path, header = ['user_id', 'item_id', 'rating', 'category']
         test_user_item_matrix[u] = test_matrix.getrow(u).nonzero()[1]
 
     return train_matrix.todok(), test_matrix.todok(), n_users, n_items, neg_user_item_matrix, test_user_item_matrix, unique_users
+
+################################################
+
+

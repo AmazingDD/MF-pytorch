@@ -2,7 +2,7 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-19 14:23:54
+ * @LastEditTime: 2019-08-19 17:06:03
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
@@ -45,3 +45,5 @@ This repository contains algorithms below:
 * `AutoInt`: [AutoInt: Automatic Feature Interaction Learning via Self-Attentive Neural Networks](https://arxiv.org/abs/1810.11921)
 
 * `MeF`: [Metric Factorization: Recommendation beyond Matrix Factorization](https://arxiv.org/abs/1802.04606)
+
+* `DeepCoNN`: [Joint deep modeling of users and items using reviews for recommendation](https://arxiv.org/abs/1701.04783)
