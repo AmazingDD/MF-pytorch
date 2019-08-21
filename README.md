@@ -2,7 +2,7 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-20 10:51:47
+ * @LastEditTime: 2019-08-20 14:00:46
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
@@ -49,3 +49,5 @@ This repository contains algorithms below:
 * `MeF`: [Metric Factorization: Recommendation beyond Matrix Factorization](https://arxiv.org/abs/1802.04606)
 
 * `DeepCoNN`: [Joint deep modeling of users and items using reviews for recommendation](https://arxiv.org/abs/1701.04783)
+
+* `GRU4REC` [SESSION-BASED RECOMMENDATIONS WITH RECURRENT NEURAL NETWORKS](https://arxiv.org/pdf/1511.06939.pdf)
