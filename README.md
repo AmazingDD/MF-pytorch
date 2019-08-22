@@ -2,7 +2,7 @@
  * @Author: Yu Di
  * @Date: 2019-08-07 17:05:30
  * @LastEditors: Yudi
- * @LastEditTime: 2019-08-20 14:00:46
+ * @LastEditTime: 2019-08-21 15:44:30
  * @Company: Cardinal Operation
  * @Email: yudi@shanshu.ai
  * @Description: 
@@ -51,3 +51,5 @@ This repository contains algorithms below:
 * `DeepCoNN`: [Joint deep modeling of users and items using reviews for recommendation](https://arxiv.org/abs/1701.04783)
 
 * `GRU4REC` [SESSION-BASED RECOMMENDATIONS WITH RECURRENT NEURAL NETWORKS](https://arxiv.org/pdf/1511.06939.pdf)
+
+* `SRGNN` [Session-based Recommendation with Graph Neural Networks](https://arxiv.org/pdf/1811.00855.pdf)
