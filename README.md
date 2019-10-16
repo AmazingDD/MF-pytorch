@@ -8,11 +8,11 @@
  * @Description: 
  -->
 
-# Matrix Factorizatopn with Pytorch
+# MF-pytorch
 
-an implementation 
+A pytorch implementation for one of the state-of-art recommendation algorithm proposed by Koren. 
 
-This repository contains algorithms below:
+**This repository contains algorithms below:**
 
 * `LR`: Logistc Regression
 
