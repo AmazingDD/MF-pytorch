@@ -10,7 +10,7 @@
 import torch
 from torch.utils.data import DataLoader, Dataset
 
-from model.SVDppRecommender import SVDpp
+from SVDppRecommender import SVDpp
 
 class RateDataset(Dataset):
     def __init__(self, user_tensor, item_tensor, target_tensor):
